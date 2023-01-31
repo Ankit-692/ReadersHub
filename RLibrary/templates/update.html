@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static '/RLibrary/update.css' %}">{% endblock %}
+
+{% block content %}
+<div class="home">
+    <a href="{% url 'home' %}">HOME</a>
+</div>
+<div class="userlist">
+    <a href="{% url 'userList' %}">MY LIST</a>
+</div>
+
+{% if trr %}
+    <div class="updated">
+        <p>Udpdated successfully</p>
+    </div>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="updating">
+        <div class="left">
+            <h1>{{book.titleName}}</h1>
+            <p><i>by {{book.authors | slice:'2:-2'}}</p></i><br>
+            <img src="{{book.image}}" alt="" class="bimg"><br>   
+            <select name="state" id="select-state">
+                <option value="{{book.state}}">{{book.state|upper}}</option>
+                <option value="completed">COMPLETED</option>
+                <option value="plan to read">PLANNING</option>
+                <option value="reading">READING</option>
+            </select><br>
+            <button type="submit" id="save">SAVE</button>
+        </div>
+        <div class="right"> 
+            <p><b><big>Published Date: </big>&ensp;{{book.publishedDate}}</b></p>
+            <p><b><big>Ratings: </big>&ensp;{% if book.ratings %}{{book.ratings}}⭐{% else %}N/A{% endif %}</b></p>
+            <p><b><big>Page Read: </big>&ensp;</b><input type="number" name="pageRead" value = "{{book.pageRead}}" min="0" max="{{book.totalPage}}" id="numsel"><b> / {{book.totalPage}}</b></p>
+            <img src="{% static 'RLibrary/images/book-stack.png'%}" alt="" class = 'backlog'>
+            <p class="desc"><b><big>About:</big><br> </b>{{book.description}}</p>
+        </div>
+    </div>
+</form>
+
+<p class="rh">@ReaderHub</p>
+{% endblock content %}

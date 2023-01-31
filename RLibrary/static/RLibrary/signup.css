@@ -1,0 +1,94 @@
+.error{
+    color: red;
+    text-align: center;
+}
+
+.vectors img{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+.upform{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 24%;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    left: 50%;
+    padding: 10px 25px 25px 25px;
+    transform: translateX(-50%);
+    top: 70px;
+    background: rgba(245, 252, 255, 0.55);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+    margin-bottom: 25px;
+}
+
+.upbutton{
+    font-size: 1.2rem;
+    color: white;
+    width: 65%;
+    background: #FCB75C;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+
+}
+
+.upform input{
+    border: none;
+    height: 2.1rem;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.sup{
+    font-size: 1.3rem;
+    padding-bottom: 5px;
+}
+
+.already-account{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 12%;
+    top: 25%;
+}
+
+.already-account a{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px;
+    background: #FCB75C;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+}
+.already-account a:hover,
+.upbutton:hover{
+    background: #fba330;
+}
+
+
+@media screen and (max-width: 720px){
+    .upform{
+        width: 80%;
+        top: 100px;
+        position: static;
+        transform: translateX(0);
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    .already-account{
+        position: static;
+        transform: translateX(0);
+    }
+}

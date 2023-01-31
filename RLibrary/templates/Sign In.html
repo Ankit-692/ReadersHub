@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link type="text/css" rel="stylesheet" href="{% static '/RLibrary/signin.css' %}">
+{% endblock  %}
+
+{% block title %}
+Reader's Hub - Sign In
+{% endblock  %}
+
+{% block content %}
+<section class="vectors">
+    <img src="{% static "/RLibrary/images/bigvec.png" %}" alt="">
+    <img src="{% static "/RLibrary/images/smavec.png" %}" alt="">
+</section>
+<p class="intro">
+    Make your personal list <br>
+            and <br>
+      keep track of <br>
+       what you read
+</p>
+<div class='signin'>
+<form method='POST'>
+    {% csrf_token %}
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{request.GET.next}}">
+    {% endif %}
+    {% if error %}
+        <p class='error'>Username or Password Incorrect</p>
+    {% endif %}
+    <p class='head'>Sign In</p>
+    <section>
+        {% for forms in form %}
+            {{forms.label}}<br>
+            {{forms}}<br>
+        {% endfor %}
+        <button type="submit" class='logbutt'>Log in</button>
+        <aside></aside>
+    </section>
+</form>
+    <span class='upLink'>
+        <a href="{% url 'reset' %}">Forgot Password?</a>
+        <br>
+        <a href="{% url 'SignUp'%}">Sign Up</a>
+    </span>
+</div>
+{% endblock  %}
+

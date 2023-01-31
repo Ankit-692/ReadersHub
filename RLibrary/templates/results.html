@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static '/RLibrary/result.css' %}">
+{% endblock  %}
+
+{% block title %}
+    Reader's Hub - {{title}}
+{% endblock  %}
+
+{% block content %}
+
+{% for message in messages %}
+   <p class="updated">{{message}}</p>
+{% endfor %}
+
+<div class="home">
+    <a href="{% url 'home' %}">HOME</a>
+</div>
+
+<div class="userList">
+    <a href="{% url 'userList' %}">MY LIST</a>
+</div>
+
+{% for res in response %}
+    <form action="search" method="POST" class="bookCard">
+        {% csrf_token %}
+        <div class = "card">
+        <input type="hidden" name='Book' value="{{title}}">
+        <p class="title">{{res.volumeInfo.title}}</p>
+        <input type="hidden" name='titleName' value="{{res.volumeInfo.title}}">
+    
+        <div class="grid">
+            <div class="description hide">
+                <p><b><big>{{res.volumeInfo.title}}</big></b></p>
+                <p>{% if res.volumeInfo.description %}{{res.volumeInfo.description}}{% else %}NOT Available{% endif %}</p>
+            </div>
+                <input type="hidden" name='description' value="{{res.volumeInfo.description}}">
+            <div class="image-banner">
+                <p class="image"><img src="{{res.volumeInfo.imageLinks.thumbnail}}" alt=""></p>
+                <input type="hidden" name='imageLink' value="{{res.volumeInfo.imageLinks.thumbnail}}">
+            </div>
+            
+            <div class="panel">
+                {% if res.volumeInfo.authors %}
+                    <b>Authors:</b>{% for auth in res.volumeInfo.authors %}<p class="authors">{{auth}}</p>{% endfor %}
+                {% else %}<b>Authors:</b> N/A
+                {% endif %}
+                <input type="hidden" name='authors' value="{{res.volumeInfo.authors}}">
+    
+                <p class="pageCount"><b>Pages:</b> {% if res.volumeInfo.pageCount %}{{res.volumeInfo.pageCount}}{% else %}N/A{% endif %}</p>
+                    <input type="hidden" name='totalPage' value="{{res.volumeInfo.pageCount}}">
+    
+                <p class="ratings"><b>Ratings:</b> {% if res.volumeInfo.averageRating %}{{res.volumeInfo.averageRating}}⭐{% else %}N/A{% endif %}</p>
+                    <input type="hidden" name='ratings' value="{{res.volumeInfo.averageRating}}">
+    
+                <p class="date"><b>Published Date:</b> {{res.volumeInfo.publishedDate}}</p>
+                    <input type="hidden" name='date' value="{{res.volumeInfo.publishedDate}}">
+            </div>
+        </div>
+        <button class="add">Add to Library</button>
+        </div>
+    </form>
+{% endfor %}
+
+
+{% endblock  %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static '/RLibrary/result.js' %}"></script>
+{% endblock script %}

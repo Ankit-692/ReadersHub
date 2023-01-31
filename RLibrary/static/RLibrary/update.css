@@ -1,0 +1,222 @@
+.home{
+    position: absolute;
+    right: 230px;
+    top: 28px;
+}
+.userlist
+{
+    position: absolute;
+    right: 300px;
+    top: 28px;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    border: 1px solid orange;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+a:hover{
+    background-color: orange;
+    color: white;
+}
+
+.updated
+{
+    border: 2px solid Green;
+    width: fit-content;
+    height: fit-content;
+    padding: 0px 15px;
+    color: Green;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.updating
+{ 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.4);
+    padding: 30px;
+    max-width: 70%;
+    justify-content: space-around;
+    box-shadow: inset 0 0 2400px rgba(213, 245, 248, 0.901),
+                2px 2px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+.right{
+    max-width: 60%;
+    margin-top: 5%;
+    font-size: 18px;
+}
+
+.backlog{
+    position: absolute;
+    opacity: 0.1;
+    right: 30%;
+    top: 40%;
+    width: 300px;
+    height: 300px;
+    z-index: -1;
+}
+
+.updating .bimg{
+    width: 175px;
+    height: 275px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.rh{
+    margin-top: 100px;
+    text-align: right;
+}
+
+.desc{
+    text-align: justify;
+    font-weight: 600;
+}
+
+.desc i{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#select-state{
+    border: none;
+    width: 175px;
+    text-align: center;
+    margin-top: 30px;
+    height: 35px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: rgb(106, 97, 180);
+    color: white;
+}
+
+#select-state:hover{
+    background-color: #4b4098;
+}
+
+#select-state option{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+#numsel{
+    text-align: center;
+    max-width: 50px;
+    font-size:16px;
+    border-radius: 5px;
+    padding: 3px;
+    border: 1px solid black;
+}
+
+#numsel:hover{
+    border-bottom: 2px solid orange;
+}
+
+#save{
+    border: none;
+    color: white;
+    background-color: orange;
+    width: 175px;
+    height: 35px;
+    text-align: center;
+    margin-top: 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+}
+
+@media screen and (max-width:720px) {
+
+    .siteTitle{
+        font-size: 1.5rem;
+        top: -15px;
+        left: 50px;
+    }
+
+    .logo{
+        height: 30px;
+        width: 30px;
+    }
+
+    .userlist,
+    .home {
+        position: absolute;
+        left: 10px;
+        top: 70px;
+        width: max-content;
+    }
+
+    .home{
+        left: 90px;
+    }
+
+    .userName p{
+        display: none;
+    }
+
+    .updated{
+        margin-top: 72px;
+    }
+
+    .updating{
+        margin-top: 70px;
+        display: block;
+    }
+
+    .left h1{
+        font-size: 1.3rem;
+    }
+
+    .updating .bimg{
+        width: calc(32*3.5px);
+        height: calc(49*3.5px);
+        float: left;
+        margin-bottom: 15px;
+    }
+
+    #select-state, #save{
+        float: right;
+        width: 115px;
+    }
+
+    .right{
+        font-size: .85rem;
+        max-width: 100%;
+    }
+
+    .right p{
+        margin-top: 10px;
+    }
+
+    #numsel{
+        font-size: .8rem;
+    }
+    #save{
+        margin-bottom: 50px;
+    }
+
+    .desc{
+        line-height: 20px;
+    }
+
+    .backlog{
+        position: fixed;
+    }
+}

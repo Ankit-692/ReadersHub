@@ -1,0 +1,173 @@
+.reset_pass{
+    background: rgba(245, 252, 255, 0.55);
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    height: auto;
+    padding: 40px;
+    font-size: 1.5rem;
+}
+
+.vectors img{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    animation: up 1.3s ease-in;
+}
+
+.reset_pass p{
+    font-size: 2.5rem;
+}
+
+.reset_pass input{
+    border: none;
+    width: 100%;
+    height: 1.8rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    padding-left: 10px;
+    font-family: monospace;
+}
+
+.reset_pass button{
+    border: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(250, 182, 57);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.reset_pass button:hover{
+    background-color: orange;
+}
+
+.reset_done{
+    text-align: center;
+    margin-top: 12%;
+}
+
+.reset_done a{
+    color: rgb(159, 132, 248);
+}
+
+.reset_done a:hover{
+    color: rgb(123, 91, 227)
+}
+
+.pass_conf{
+    background: rgba(245, 252, 255, 0.55);
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    height: auto;
+    padding: 40px;
+    font-size: 1.5rem;
+}
+
+.pass_conf input{
+    border: none;
+    width: 100%;
+    height: 1.8rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    padding-left: 10px;
+    font-family: Montserrat;
+}
+
+.helptext{
+    font-size: 1rem;
+}
+
+.pass_conf button{
+    border: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(250, 182, 57);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+.pass_conf button:hover{
+    background-color: orange;
+}
+
+.pass_comp{
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-25%);
+    text-align: center;
+    margin-top: 12%;
+    background: rgba(245, 252, 255, 0.55);
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    font-size: 2rem;
+    border-radius: 20px;
+}
+
+.pass_comp a{
+    color: rgb(159, 132, 248);
+}
+
+.pass_comp a:hover{
+    color: rgb(123, 91, 227)
+}
+
+
+@media screen and (max-width:720px){
+    .reset_pass{
+        top: 50%;
+        width: 65%;
+    }
+    .reset_pass p{
+        font-size: 1.6rem;
+    }
+
+    .reset_pass button{
+        width: max-content;
+    }
+
+    .reset_done{
+        padding: 15px;
+    }
+
+    .pass_conf{
+        font-size: 1rem;
+        width: 65%;
+        top: 50%;
+    }
+    .helptext{
+        font-size: .8rem;
+    }
+
+    .pass_comp{
+        top: 30%;
+        font-size: 1.4rem;
+        width: 80%;
+    }
+
+    .pass_comp h3{
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}<link rel="stylesheet" href="{% static '/RLibrary/user.css' %}">{% endblock  %}
+
+{% block title %}
+Reader's Hub - User's List
+{% endblock  %}
+
+{% block content %}
+
+<div class="home">
+    <a href="{% url 'home' %}">HOME</a>
+</div>
+
+<h1>SAVED BOOKS</h1>
+<a href="/user">All</a>
+<a href="/user/plan to read">Planned</a>
+<a href="/user/completed">Completed</a>
+<a href="/user/reading">Reading</a>
+<div class="sbooks">
+{% for book in data %}
+    <div class="scard">
+        <div class="imgl">
+            <img src="{{book.image}}" alt="">
+        </div>
+        <div class="sdata">
+            <p class="stitle">{{book.titleName}}</p>
+            <p><i>by: {{book.authors|slice:"2:-2"}}</i></p>
+            {% if book.pageRead %}
+            <p><b>{{book.pageRead}}</b> out of <b>{{book.totalPage}}</b></p>
+            {% else %} <p><b>0</b> out of <b>{{book.totalPage}}</b></p>
+            {% endif %}
+            <p>[<b>{{book.state|upper}}</b>]</p>
+            <a href="{% url 'update' book.id %}">UPDATE 🖋️</a>
+            <span class="space"></span>
+            <a href="/delete/{{book.id}}" class="del">DELETE 🔻</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

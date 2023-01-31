@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static '/RLibrary/notfound.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div class="home">
+    <a href="{% url 'home' %}">HOME</a>
+</div>
+<img src="{% static '/RLibrary/images/error.jpg' %}" alt="">
+
+{% endblock content %}

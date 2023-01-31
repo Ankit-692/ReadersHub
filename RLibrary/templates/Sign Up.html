@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static '/RLibrary/signup.css' %}">{% endblock  %}
+
+{% block title %}
+Reader's Hub - Sign Up 
+{% endblock  %}
+{% block content %}
+<section class="vectors">
+    <img src="{% static "/RLibrary/images/bigvec.png" %}" alt="">
+    <img src="{% static "/RLibrary/images/smavec.png" %}" alt="">
+</section>
+<form method='POST' class='upform'>
+{% csrf_token %}
+{% if Ierror == True%}
+    <p class="error">UserName already exists</p>
+{% endif %}
+{% if Perror == True %}
+    <p class = "error">Password didn't match</p>
+{% endif %}
+<p class='sup'>Sign Up</p>
+{% for forms in form %}
+    {{forms.label}}<br>
+    {{forms}}<br>
+{% endfor %}
+<input type="submit" value="Sign Up" class='upbutton'>
+</form>
+<aside class='already-account'>
+    <p>Already have an account?</p>
+    <a href="{% url 'SignIn' %}">Sign In</a>
+</aside>
+{% endblock  %}

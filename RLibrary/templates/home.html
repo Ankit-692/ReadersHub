@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link type="text/css" rel="stylesheet" href={% static '/RLibrary/home.css' %}>
+{% endblock  %}
+
+{% block title %}
+Reader's Hub - Home
+{% endblock  %}
+
+{% block content %}
+
+<div class="userList">
+    <a href="{% url 'userList' %}">MY LIST</a>
+</div>
+<section class="search-box">
+    <div class="typewriter">
+        <h1>SEARCH ANY BOOK</h1>
+    </div>
+    
+    <form action='search'>
+        <input type="text" name="Book" id="books">
+        <button type="submit">Search</button>
+    </form>
+</section>
+{% endblock  %}

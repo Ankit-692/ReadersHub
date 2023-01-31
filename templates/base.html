@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="{% static "/base.css"%}" rel="stylesheet">
+    {% block style %}{% endblock  %}
+    <title>{% block title %}{% endblock  %}</title>
+</head>
+<body>
+    <img src="{% static "/RLibrary/images/book-stack.png"%}" alt="RLib" class='logo'>
+    <p class="siteTitle">Reader's Hub</p>
+    {% if user.is_authenticated %}
+    <section class="userName">
+        <p>Hello {{user.get_username}}</p>
+        <form method='POST' action="/logout">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    </section>
+    {% endif %}
+    <div class="contentblock">
+        {% block content %}
+        {% endblock  %}
+    </div>
+    <div class="blur hide"></div>
+    {% block script %}
+    {% endblock script %}
+</body>
+</html>
