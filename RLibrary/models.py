@@ -10,5 +10,5 @@ class Book(models.Model):
     image = models.CharField(max_length=250,null=True, blank=True)
     publishedDate = models.CharField(max_length=100,null=True, blank=True)
     pageRead = models.PositiveSmallIntegerField(null=True, blank=True,default=0)
-    state = models.CharField(default='plan to read',max_length = 100, choices=[('completed','Completed'),('plan to read','Plan to Read'),('reading','Reading')])
+    state = models.CharField(default='plan-to-read',max_length = 100, choices=[('completed','Completed'),('plan-to-read','Plan-to-Read'),('reading','Reading')])
 
